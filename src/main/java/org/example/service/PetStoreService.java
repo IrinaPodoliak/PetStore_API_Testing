@@ -17,6 +17,11 @@ public class PetStoreService extends CommonService {
         return super.getRequest(uri.getUri(id));
     }
 
+    public Response getRequest(UriTemplate uri, String status) {
+
+        return super.getRequest(uri.getUri(status));
+    }
+
     public Response putRequest(UriTemplate uri, Object body) {
         return super.putRequest(uri.getUri(), body);
     }

@@ -4,6 +4,8 @@ import io.restassured.response.Response;
 import org.example.entities.Pet;
 import org.example.service.PetStoreService;
 
+import java.util.List;
+
 import static org.example.service.uritemplate.PetServiceUri.*;
 
 public class PetStoreSteps {
@@ -11,6 +13,10 @@ public class PetStoreSteps {
 
     public static Response getPetById(int id) {
         return PET_STORE_SERVICE.getRequest(PET_BY_ID, id);
+    }
+
+    public static List<Pet> getPetsByStatus(String status) {
+        return PET_STORE_SERVICE.getRequest(PETS_BY_STATUS, status).jsonPath().getList("", Pet.class);
     }
 
     public static Response createPet(Pet pet) {

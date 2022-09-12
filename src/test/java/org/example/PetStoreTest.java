@@ -6,6 +6,8 @@ import org.example.steps.PetStoreSteps;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 import static org.apache.http.HttpStatus.*;
 
 public class PetStoreTest {
@@ -16,6 +18,13 @@ public class PetStoreTest {
         createPetTest();
         Assert.assertEquals(getPetById().as(Pet.class).getId(), createdPet.getId());
         Assert.assertEquals(getPetById().getStatusCode(), SC_OK);
+    }
+
+    @Test
+    public void getPetsByStatus() {
+        String statusToFind = "sold";
+        List<Pet> pets = PetStoreSteps.getPetsByStatus(statusToFind);
+        Assert.assertEquals(pets.get(1).getStatus(), statusToFind);
     }
     @Test
     public void createPetTest() {
@@ -52,7 +61,9 @@ public class PetStoreTest {
         return new Pet()
                 .setName("Dana")
                 .setId(3)
-                .setStatus("available");
+                .setStatus("available")
+                .setPhotoUrls(List.of("https://www.instagram.com/p/B_fT49cptMb/"));
+
     }
 
     private Pet updatePet() {
