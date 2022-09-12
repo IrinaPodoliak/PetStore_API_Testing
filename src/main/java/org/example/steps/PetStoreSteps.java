@@ -4,8 +4,6 @@ import io.restassured.response.Response;
 import org.example.entities.Pet;
 import org.example.service.PetStoreService;
 
-import java.util.List;
-
 import static org.example.service.uritemplate.PetServiceUri.*;
 
 public class PetStoreSteps {
