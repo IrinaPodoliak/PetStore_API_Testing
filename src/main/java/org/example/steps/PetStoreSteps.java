@@ -11,7 +11,7 @@ import static org.example.service.uritemplate.PetServiceUri.*;
 public class PetStoreSteps {
     private static final PetStoreService PET_STORE_SERVICE = PetStoreService.getInstance();
 
-    public static Response getPetById(int id) {
+    public static Response getPetById(long id) {
         return PET_STORE_SERVICE.getRequest(PET_BY_ID, id);
     }
 
@@ -27,7 +27,7 @@ public class PetStoreSteps {
         return PET_STORE_SERVICE.putRequest(PET_BY_ID, pet);
     }
 
-    public static void deletePetById(int id) {
+    public static void deletePetById(long id) {
         PET_STORE_SERVICE.deleteRequest(PET_BY_ID, id);
     }
 }

@@ -13,7 +13,7 @@ public class PetStoreService extends CommonService {
         return instance;
     }
 
-    public Response getRequest(UriTemplate uri, int id) {
+    public Response getRequest(UriTemplate uri, long id) {
         return super.getRequest(uri.getUri(id));
     }
 
@@ -30,7 +30,7 @@ public class PetStoreService extends CommonService {
         return super.postRequest(uri.getUri(), body);
     }
 
-    public void deleteRequest(UriTemplate uri, int id) {
+    public void deleteRequest(UriTemplate uri, long id) {
         super.deleteRequest(uri.getUri(id));
     }
 }
